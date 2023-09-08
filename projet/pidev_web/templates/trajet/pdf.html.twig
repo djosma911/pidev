@@ -1,0 +1,13 @@
+{% block body %}
+    <h1>Stations pour la ligne {{ ligne.nomLigne }}</h1>
+
+    {% if stations|length > 0 %}
+        <ul>
+            {% for station in stations %}
+                <li>{{ station.longalt }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucune station trouvée pour cette ligne.</p>
+    {% endif %}
+{% endblock %}

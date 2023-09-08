@@ -1,0 +1,28 @@
+{% extends 'Front/front.html.twig' %}
+
+				{% block body %}
+					
+					  
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section>
+							
+                                   <table class="table">
+                                        <h1>Stations pour la ligne {{ ligne.nomLigne }}</h1>
+										<th>actions</th>
+										<td>
+                                                      <a href="{{ path('app_client_ligne_pdf', {'id': ligne.id}) }}">pdf</a>
+                                                      
+                                                    </td>
+
+{% if stations|length > 0 %}
+    <ul>
+        {% for station in stations %}
+            <li>{{ station.longalt }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Aucune station trouvée pour cette ligne.</p>
+{% endif %}
+ {% endblock %}
